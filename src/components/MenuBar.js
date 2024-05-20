@@ -1,36 +1,26 @@
 import React from "react";
 
-function MenuBar(props) {
-  /*
-
-  The 'span' tags below are the menu items. Think about the way a menu 
-  should work. When you click a menu item, the button typically becomes
-  'active' to indicate that it is currently selected. How could we achieve
-  this programatically? What other behavior do we expect when we click
-  on a menu item? Do we need state in this component, and if not, how can
-  this component be made aware of what is currently the active menu item?
-
-  */
-
+function MenuBar({ onClick, active }) {
   return (
     <div className="ui four item menu">
-      <span className="item active">
-        <i className="user large icon" />
+      <span className={active === "profile" ? "item active" : "item"}>
+        <i className="user large icon" onClick={() => onClick("profile")} />
       </span>
 
-      <span className="item">
-        <i className="photo large icon" />
+      <span className={active === "photos" ? "item active" : "item"}>
+        <i className="photo large icon" onClick={() => onClick("photos")} />
       </span>
 
-      <span className="item">
-        <i className="cocktail large icon" />
+      <span className={active === "cocktails" ? "item active" : "item"}>
+        <i className="cocktail large icon" onClick={() => onClick("cocktails")} />
       </span>
 
-      <span className="item">
-        <i className=" themeisle large icon" />
+      <span className={active === "pokemon" ? "item active" : "item"}>
+        <i className=" themeisle large icon" onClick={() => onClick("pokemon")} />
       </span>
     </div>
   );
 }
 
 export default MenuBar;
+
